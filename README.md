@@ -1,7 +1,7 @@
 The-Eerie-Squirmies
 ===================
 
-question I saw on an online problem set. Can an ANN approximate the language described by a regular expression given positive and negative examples?
+I found the eerie squirmies question on an online problemset, and I wondered if it is feasible for an ANN learn an approximate language described by a regular expression given positive and negative examples?
 
 Question:
 
