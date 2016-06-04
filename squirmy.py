@@ -21,7 +21,7 @@ def binary_encode(s):
 trX = np.load("trX.npy")
 trY = np.load("trY.npy")
 
-# We'll want to randomly initialize weights.
+# Randomly initialize weights.
 def init_weights(shape):
     return tf.Variable(tf.random_normal(shape, stddev=0.01))
 
@@ -32,7 +32,7 @@ def model(X, w_h, w_o):
     h = tf.nn.relu(tf.matmul(X, w_h))
     return tf.matmul(h, w_o)
 
-# Our variables. The input has width NUM_DIGITS, and the output has width 4.
+# Our variables. The input has width NUM_DIGITS, and the output has width 1.
 X = tf.placeholder("float", [None, NUM_DIGITS])
 Y = tf.placeholder("float", [None, 1])
 
@@ -73,13 +73,9 @@ with tf.Session() as sess:
         print(epoch, np.mean(np.argmax(trY, axis=1) ==
                              sess.run(predict_op, feed_dict={X: trX, Y: trY})))
 
-    # And now for some fizz buzz
-#    numbers = np.arange(1, 101)
-#    teX = np.transpose(binary_encode(numbers, NUM_DIGITS))
-#    teY = sess.run(predict_op, feed_dict={X: teX})
     test = ["ACATATAGACATACGT","AAA","TTT", "ATGC"]
     teX = np.array([binary_encode(x) for x in test])
-    #teXX = np.transpose(teX)
+   # teXX = np.transpose(teX)
     teY = sess.run(predict_op,feed_dict={X: teX})
     print(teY)
 

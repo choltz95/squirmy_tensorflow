@@ -45,13 +45,9 @@ def generate_not_squirmy():
         ns = exrex.getone(not_squirmy,limit=18)
     return ns
 
-trX_pos = np.array([binary_encode(generate_squirmy()) for _ in range(65536)]) # 1024
-trY_pos = np.array([1 for _ in range(65536)])# 65536
-#print(trX_pos)
-#s = generate_squirmy()
-#print(len(s))
-#print(s)
-#print(binary_encode(s))
+trX_pos = np.array([binary_encode(generate_squirmy()) for _ in range(65536)])
+trY_pos = np.array([1 for _ in range(65536)])
+
 trX_neg = np.array([binary_encode(generate_not_squirmy()) for _ in range(65536)])
 trY_neg = np.array([0 for _ in range(65536)])
 
@@ -59,17 +55,8 @@ trX = np.concatenate((trX_pos,trX_neg),axis=0)
 trY = np.concatenate((trY_pos,trY_neg),axis=0)
 trY = np.expand_dims(trY, axis=1)
 
-print(trX)
-print(trY)
+#print(trX)
+#print(trY)
 np.save("trY",trY)
 np.save("trX",trX)
 
-"""
-s = generate_squirmy()
-print s
-print binary_encode(s)
-print '*****'
-s = generate_not_squirmy()
-print s
-print binary_encode(s)
-"""
