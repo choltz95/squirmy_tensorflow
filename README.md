@@ -1,7 +1,7 @@
 The-Eerie-Squirmies
 ===================
 
-This was the first of two coding challenges for a job I applied for.
+question I saw on an online problem set. Can an ANN approximate the language described by a regular expression given positive and negative examples?
 
 Question:
 
